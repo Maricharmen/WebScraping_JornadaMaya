@@ -1,3 +1,6 @@
+'''
+Descargar una el .html de la pagina para hacer pruebas
+'''
 import requests
 
 url = "https://www.lajornadamaya.mx/k'iintsil/35167/jk-im-xunaan-paula-juntuul-xk-am-paal-jach-k-ajoolta-an-zona-maya"
