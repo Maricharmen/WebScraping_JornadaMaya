@@ -2,6 +2,8 @@
 
 Recuperación de información de la página web **La Jornada Maya** mediante técnicas de *web scraping*.
 
+Presentacion [Link](https://www.canva.com/design/DAGgjol0fKg/XDfiXU9-gvmju_lxl_8qoQ/edit?utm_content=DAGgjol0fKg&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+
 ## Información Recopilada
 El scraping extrae los siguientes detalles de cada artículo:
 
