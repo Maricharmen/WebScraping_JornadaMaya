@@ -1,5 +1,4 @@
 import requests
-import random
 import pandas as pd
 import re
 from bs4 import BeautifulSoup
@@ -18,10 +17,8 @@ def get_links(url):
         contents = soup.find_all("div", class_="single-blog-content")
         
         for content in contents:
-            links = content.find_all("a", target = "_blank")
-        
-            for link in links:
-                all_links.append(link.get("href"))
+            link = content.find("a", target = "_blank")
+            all_links.append(link.get("href"))
         
         return all_links
     
@@ -106,9 +103,9 @@ def get_info(link):
         
         return {
             "Fecha": date,
-            "Author": author,
-            "Traductor": traductor,
-            "Ubicacion": location,
+            #"Autor": author,
+            #"Traductor": traductor,
+            #"Ubicacion": location,
             "Titulo": title,
             "Contenido": text.strip()
         }
@@ -118,7 +115,8 @@ def get_info(link):
         return None
 
 def scraping():
-    months = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
+    #months = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
+    months = ["enero"]
     df = pd.DataFrame()
     dfs = []
     
