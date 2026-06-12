@@ -1,45 +1,37 @@
-# Web Scraping
+# La Jornada Maya - Web Scraping & Analytics Pipeline
 
-Recuperación de información de la página web **La Jornada Maya** mediante técnicas de *web scraping*.
+An ETL pipeline designed to ingest, parse, and analyze bilingual news data from the *K'iintsil* section of **La Jornada Maya**. The project automates content retrieval using randomized headers to prevent anti-bot throttling, features structured feature extraction with robust exception handling, and includes an NLP computational linguistics layer for Spanish and Yucatec Maya token classification.
 
-Presentacion [Link](https://www.canva.com/design/DAGgjol0fKg/XDfiXU9-gvmju_lxl_8qoQ/edit?utm_content=DAGgjol0fKg&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+💡 **Project Presentation:** [Canva Link](https://www.canva.com/design/DAGgjol0fKg/XDfiXU9-gvmju_lxl_8qoQ/edit?utm_content=DAGgjol0fKg&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
-## Información Recopilada
-El scraping extrae los siguientes detalles de cada artículo:
+---
 
-- **Fecha**
-- **Título**
-- **Autor** (si está disponible).
-- **Traductor** (si está disponible).
-- **Ubicación** (si está disponible).
-- **Contenido**
+## Getting Started & Quick Setup
 
-## Estructura
+Follow these operational steps to build and spin up the environment isolation pipelines locally.
 
-El archivo `.csv` generado se llama **`datos_analisis.csv`** y tiene la siguiente estructura:
+1. Prerequisites
+Ensure you have Python 3.10+ installed on your system architecture.
 
-| Fecha       | Autor        | Traductor     | Ubicacion     | Titulo       | Contenido      |
-|-------------|--------------|---------------|---------------|--------------|----------------|
-| 02/03/2025  | Juan Pérez   | Ana Gómez     | Cancún        | Ejemplo 1    | Texto del artículo 1... |
-| 03/03/2025  | María López  | Desconocido   | Playa del Carmen | Ejemplo 2 | Texto del artículo 2...  |
-
-### Funciones Principales
-
-1. **`get_links(url)`**: Recupera todos los enlaces de artículos de una página específica (por mes)
-   
-2. **`find_all_links_in_month(month)`**: Construye la URL de la página correspondiente al mes y llama a `get_links()` para obtener los enlaces de artículos publicados en ese mes.
-
-3. **`get_info(link)`**: Extrae la información de un artículo a partir de su enlace:
-   - Título
-   - Fecha
-   - Autor
-   - Traductor
-   - Ubicación
-   - Contenido
-
-4. **`scraping()`**: Procesa el scraping para cada mes del año, recuperando los enlaces y los detalles de cada artículo, y guardándolos en un archivo `.csv` llamado `datos_analisis.csv`.
-
-## Ejecución
+2. Environment Configuration
+Clone the repository and spin up a pristine isolated virtual environment:
 
 ```bash
-python main.py
+# Clone the repository
+git clone https://github.com/Maricharmen/WebScraping_JornadaMaya.git
+cd WebScraping_JornadaMaya
+
+# Instantiate and activate the environment container
+python3 -m venv .venv
+source .venv/bin/activate  # On Windows use: .venv\Scripts\activate
+
+# Install explicit runtime dependencies
+pip install -r requirements.txt
+```
+
+3. Pipeline Execution
+Run the scraping ingestion module to populate target arrays:
+
+```bash
+python src/scraper_pipeline.py
+```
